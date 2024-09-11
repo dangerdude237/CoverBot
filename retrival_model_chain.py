@@ -7,6 +7,10 @@ import spacy
 import numpy as np
 import pandas as pd
 from langchain.prompts import PromptTemplate
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class Retrival_Model_Class:
     def Transform_For_Embeddings(self,doc_text):
@@ -25,7 +29,7 @@ class Retrival_Model_Class:
         self.doc_text = [doc.page_content for doc in self.data]
         self.doc_text_preprocessed = self.Transform_For_Embeddings(self.doc_text.copy())
         embeddings = HuggingFaceInferenceAPIEmbeddings(
-            api_key = "<your_hugging_face_api_key>",
+            api_key = os.getenv("HUGGINGFACE_API_KEY"),
             model_name="avsolatorio/GIST-Embedding-v0"
         )
         query_result = embeddings.embed_documents(self.doc_text_preprocessed)

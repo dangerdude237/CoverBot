@@ -13,7 +13,7 @@ load_dotenv()
 
 #llm initialization
 app = FastAPI()
-llm = llm = ChatMistralAI(
+llm = ChatMistralAI(
     model="mistral-large-latest",
     temperature=0,
     max_retries=2,
