@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Cover Letter Generator",
+    "version": "1.0",
+    "description": "Gives customized cover letter based on the job description and the resume",
+    
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
+  
+    "action": {
+      "default_popup": "popup.html"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "all_frames": true
+      }
+    ],
+  
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
+
+  
