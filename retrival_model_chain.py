@@ -25,7 +25,7 @@ class Retrival_Model_Class:
         self.doc_text = [doc.page_content for doc in self.data]
         self.doc_text_preprocessed = self.Transform_For_Embeddings(self.doc_text.copy())
         embeddings = HuggingFaceInferenceAPIEmbeddings(
-            api_key = "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",
+            api_key = "<your_hugging_face_api_key>",
             model_name="avsolatorio/GIST-Embedding-v0"
         )
         query_result = embeddings.embed_documents(self.doc_text_preprocessed)
